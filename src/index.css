@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-ink: #12141a;
+  --color-panel: #1b1e27;
+  --color-panel-2: #242833;
+  --color-line: #2e323c;
+  --color-paper: #f2f1ed;
+  --color-dim: #9aa0ac;
+  --color-signal: #e8a33d;
+  --color-signal-dim: #a87526;
+  --color-ok: #3ecf8e;
+  --color-danger: #e85d5d;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: var(--color-signal);
+  color: var(--color-ink);
+}
+
+input, select, textarea {
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus, button:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+}
