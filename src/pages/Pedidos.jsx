@@ -47,9 +47,9 @@ export default function Pedidos() {
         api.get("/usuarios"),
         api.get("/productos"),
       ]);
-      setPedidos(pedidosRes.data);
-      setUsuarios(usuariosRes.data);
-      setProductos(productosRes.data);
+      setPedidos(Array.isArray(pedidosRes.data) ? pedidosRes.data : []);
+      setUsuarios(Array.isArray(usuariosRes.data) ? usuariosRes.data : []);
+      setProductos(Array.isArray(productosRes.data) ? productosRes.data : []);
     } catch {
       setError("No se pudieron cargar los pedidos.");
     } finally {
@@ -85,9 +85,9 @@ export default function Pedidos() {
     setSelectedPedido(pedido);
     try {
       const { data } = await api.get(`/detalles/pedido/${pedido.id}`);
-      setDetalles(data);
+      setDetalles(Array.isArray(data) ? data : []);
     } catch {
-      setDetalles([]);
+      setDetalles(Array.isArray(data) ? data : []);
     }
   }
 
@@ -101,7 +101,7 @@ export default function Pedidos() {
       });
       setDetalleForm({ productoId: "", cantidad: 1 });
       const { data } = await api.get(`/detalles/pedido/${selectedPedido.id}`);
-      setDetalles(data);
+      setDetalles(Array.isArray(data) ? data : []);
       cargarTodo(); // refresca el total del pedido
     } catch {
       setError("No se pudo agregar el producto al pedido.");
