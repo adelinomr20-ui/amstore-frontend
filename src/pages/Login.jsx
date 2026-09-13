@@ -65,7 +65,7 @@ export default function Login() {
         </div>
 
         <p className="relative z-10 text-xs text-dim font-mono">
-          conectado a spring boot · localhost:8080
+          AM STORE CLOUD
         </p>
       </div>
 
@@ -88,7 +88,7 @@ export default function Login() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="admin@amstore.com"
+            placeholder="correo@ejemplo.com"
             className="w-full mb-4 bg-panel border border-line rounded-md px-3.5 py-2.5 text-sm text-paper placeholder:text-dim/60"
           />
 
@@ -114,11 +114,6 @@ export default function Login() {
             {loading ? "Verificando..." : "Entrar"}
           </button>
 
-          <p className="text-xs text-dim mt-6 font-mono">
-            usuarios de prueba: admin@amstore.com / admin123
-            <br />
-            ana@gmail.com / 123456
-          </p>
         </form>
       </div>
     </div>
